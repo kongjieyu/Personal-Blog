@@ -2,9 +2,11 @@
   "name": "personal-blog",
   "version": "1.0.0",
   "description": "Node js Personal Blog",
-  "main": "index.js",
+  "main": "bin/www.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=dev nodemon ./bin/www.js",
+    "prd": "cross-env NODE_ENV=production nodemon ./bin/www.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/kongjieyu/Personal-Blog/issues"
   },
-  "homepage": "https://github.com/kongjieyu/Personal-Blog#readme"
+  "homepage": "https://github.com/kongjieyu/Personal-Blog#readme",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.1"
+  }
 }
