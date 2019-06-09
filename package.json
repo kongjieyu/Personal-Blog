@@ -1,0 +1,19 @@
+{
+  "name": "personal-blog",
+  "version": "1.0.0",
+  "description": "Node js Personal Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kongjieyu/Personal-Blog.git"
+  },
+  "author": "May",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kongjieyu/Personal-Blog/issues"
+  },
+  "homepage": "https://github.com/kongjieyu/Personal-Blog#readme"
+}
