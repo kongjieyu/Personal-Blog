@@ -6,13 +6,13 @@ const handleUserRouter = require('./src/router/user.js')
 //cope with the post data
 const getPostData = (req) => {
     const promise = new Promise((resolve, reject) => {
-        if(req.method !== 'POST'){
+        if (req.method !== 'POST') {
             resolve({})
             return
         }
-        if(req.headers['Content-type'] !== 'application/json'){
+        if (req.headers['content-type'] !== 'application/json') {
             resolve({})
-            return 
+            return
         }
         let postData = ''
         req.on('data', chunk => {
@@ -21,7 +21,7 @@ const getPostData = (req) => {
         req.on('end', () => {
             if (!postData) {
                 resolve({})
-                return 
+                return
             }
             resolve(
                 JSON.parse(postData)
@@ -44,30 +44,30 @@ const serverHandle = (req, res) => {
     getPostData(req).then(postData => {
         req.body = postData
 
-    git //Router
-    //If there is blogData, return it
-    const blogData = handleBlogRouter(req, res) 
-    if (blogData) {
-        console.log('blogData', blogData)
-        res.end(
-            JSON.stringify(blogData)
-        )
-        return
-    }
+        //Router
+        //If there is blogData, return it
+        const blogData = handleBlogRouter(req, res)
+        if (blogData) {
+            console.log('blogData', blogData)
+            res.end(
+                JSON.stringify(blogData)
+            )
+            return
+        }
 
-     //If there is userData, return it
-    const userData = handleUserRouter(req, res)
-    if(userData) {
-        res.end(
-            JSON.stringify(userData)
-        )
-        return
-    }
+        //If there is userData, return it
+        const userData = handleUserRouter(req, res)
+        if (userData) {
+            res.end(
+                JSON.stringify(userData)
+            )
+            return
+        }
 
-    //if it doesn't match any router, return error
-    res.writeHead(404, {'Content-type': 'text/plain'})
-    res.write("404 not found!!!\n")
-    res.end()
+        //if it doesn't match any router, return error
+        res.writeHead(404, { 'Content-type': 'text/plain' })
+        res.write("404 not found!!!\n")
+        res.end()
     })
 
 

@@ -30,7 +30,7 @@ const http = require('http')
 //     }
 // })
 const querystring = require('querystring')
-const server = http.createServer((req,res)=>{
+const server = http.createServer((req, res) => {
     const method = req.method
     console.log('method', req.method) //GET
     const url = req.url
@@ -48,12 +48,12 @@ const server = http.createServer((req,res)=>{
         query
     }
 
-    if(method==='GET'){
+    if (method === 'GET') {
         res.end(
             JSON.stringify(resData)
         )
     }
-    if(method==='POST'){
+    if (method === 'POST') {
         console.log('req content type:', req.headers['content-type'])
         let postData = ''
         req.on('data', chunk => {
@@ -62,12 +62,15 @@ const server = http.createServer((req,res)=>{
         req.on('end', () => {
             resData.postData = postData
             res.end(
-                 JSON.stringify(resData)
+                JSON.stringify(resData)
             )
         })
     }
 
 })
 
-server.listen(8000) 
+server.listen(8000)
 console.log('OK 8000')
+
+
+
